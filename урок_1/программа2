@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a, b, s, r, p, c, q;
+
+    cout << "Input A" << endl;
+    cin >> a;
+
+    cout << "Input B" << endl;
+    cin >> b;
+
+    s = a + b;
+    r = a - b;
+    p = a * b;
+    c = a / b;
+    q = a % b;
+
+    cout << "Summa" << " " << s << endl;
+    cout << "Razno" << " " << r << endl;
+    cout << "Proiz" << " " << p << endl;
+    cout << "Chast" << " " << c << endl;
+    cout << "Ostat" << " " << q << endl;
+
+    return 0;
+}
+
+

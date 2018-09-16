@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a, b, c, x;
+
+    cout << "A:" << endl;
+    cin >> a;
+    cout << "B: " << endl;
+    cin >> b;
+    cout << "C: " << endl;
+    cin >> c;
+
+    if(c != 0) {
+        x = (a + b) / c;
+        cout << "Result: " << endl;
+        cout << x;
+    } else {
+        cout << "Result: " << endl;
+        cout << "Variable C is zero" << endl;
+    }
+
+    return 0;
+}
+
+
+

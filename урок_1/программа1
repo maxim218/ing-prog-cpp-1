@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a;
+    int b;
+    int c;
+
+    cout << "Vvedite 1-oe chislo" << endl;
+    cin >> a;
+    cout << "Vvedite 2-oe chislo" << endl;
+    cin >> b;
+
+    c = a + b;
+
+    cout << "Resultat" << endl;
+    cout << c;
+
+    return 0;
+}
+

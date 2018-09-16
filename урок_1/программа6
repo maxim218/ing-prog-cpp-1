@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int i;
+
+    for(i = 1; i <= 5; i += 1) {
+        cout << "HELLO" << endl;
+    }
+
+    /*
+        i = 1 HELLO
+        i = 2 HELLO
+        i = 3 HELLO
+        i = 4 HELLO
+        i = 5 HELLO
+        i = 6 -----------
+    */
+
+    return 0;
+}
+
+
+
+

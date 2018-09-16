@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int i;
+    int n;
+
+    cout << "Input N:" << endl;
+    cin >> n;
+
+    cout << "Output:" << endl;
+
+    for(i = 1; i <= n; i += 1) {
+        cout << i << endl;
+        cout << "HELLO" << endl;
+    }
+
+    return 0;
+}
+
+
+
+
+

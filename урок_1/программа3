@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a, b;
+
+    cin >> a;
+    cin >> b;
+
+    if(a > b) {
+        cout << "AAAA" << endl;
+    }
+
+    if(a < b) {
+        cout << "BBBB" << endl;
+    }
+
+    if(a == b) {
+        cout << "RRRRRRRRRRRR" << endl;
+    }
+
+    return 0;
+}
+
+
