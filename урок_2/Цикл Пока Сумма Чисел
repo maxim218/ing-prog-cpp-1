@@ -1,0 +1,20 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n = 5;
+    int s = 0;
+
+    while (n != 0) {
+        cin >> n;
+        s += n;
+    }
+
+    cout << "\n" << "Summa: " << s << "\n\n";
+
+    return 0;
+}
+
+

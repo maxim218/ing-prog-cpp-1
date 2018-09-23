@@ -1,0 +1,22 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a, b, i;
+
+    cin >> a;
+    cin >> b;
+
+    cout << "Output:" << endl;
+
+    for(i = a; i <= b; i++) {
+        if(i % 2 == 0) {
+            cout << i << " ";
+        }
+    }
+
+    return 0;
+}
+

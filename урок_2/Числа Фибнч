@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a = 0;
+    int b = 1;
+
+    cout << a << "\n";
+    cout << b << "\n";
+
+    for(int i = 1; i <= 15; i++) {
+        int next = a + b;
+        cout << next << "\n";
+        a = b;
+        b = next;
+    }
+
+    return 0;
+}
+
+

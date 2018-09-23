@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+void isProst(int x, int &result) {
+    if(x == 1) {
+        result = 0;
+        return;
+    }
+
+    if(x == 2 || x == 3) {
+        result = 1;
+        return;
+    }
+
+    for(int i = 2; i < x; i++) {
+        if(x % i == 0) {
+            result = 0;
+            return;
+        }
+    }
+
+    result = 1;
+}
+
+
+
+int main()
+{
+    for(int i = 1; i <= 1000; i++) {
+        int r;
+        isProst(i, r);
+        if(r == 1) {
+            cout << i << "\n";
+        }
+    }
+
+    return 0;
+}
+
+

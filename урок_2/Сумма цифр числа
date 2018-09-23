@@ -1,0 +1,26 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n, ost, i, s;
+
+    s = 0;
+
+    cin >> n;
+
+    for(int i = 1; i <= 15; i += 1) {
+        ost = n % 10;
+        n = n / 10;
+        cout << ost << "  ";
+        s += ost;
+    }
+
+    cout << "\n";
+    cout << "Summa: " << s;
+    cout << "\n";
+
+    return 0;
+}
+
