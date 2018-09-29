@@ -1,0 +1,74 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    cout << "Input n: " << "\n";
+    int n;
+    cin >> n;
+
+    cout << "Input " << n << " numbers: " << "\n";
+
+    int * arr = new int[n];
+
+    for(int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    cout << "Elements of array: " << "\n";
+
+    for(int i = 0; i < n; i++) {
+        cout << arr[i] << "  ";
+    }
+
+    cout << "\n" << "Elements of array back: " << "\n";
+
+    for(int i = n - 1; i >= 0; i--) {
+        cout << arr[i] << "  ";
+    }
+
+
+    int m = arr[0];
+    for(int i = 0; i < n; i++) {
+        if(arr[i] > m) {
+            m = arr[i];
+        }
+    }
+
+    cout << "\n" << "Max value: " << m;
+
+    for (int i = 0; i < n - 1; ++i)   {
+		 int min_index = i;
+
+		 for (int j = i + 1; j < n; ++j)  {
+		 	if (arr[j] < arr[min_index]) {
+                min_index = j;
+		 	}
+		 }
+
+		 swap(arr[i], arr[min_index]);
+	 }
+
+	 cout << "\n" << "Sorted array: " << "\n";
+
+	 for(int i = 0; i < n; i++) {
+        cout << arr[i] << "  ";
+     }
+
+
+    cout << "\n\n";
+
+    delete [] arr;
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+

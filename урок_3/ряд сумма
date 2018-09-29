@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+void getStepen(float x, int s, float &result) {
+    float r = 1;
+    for(int i = 1; i <= s; i++) {
+        r = r * x;
+    }
+    result = r;
+}
+
+void getSumma(float n, float &answer) {
+    float sum = 0;
+    int stepen = 1;
+    float v = 1;
+
+    while(v > 0.001) {
+        getStepen(n, stepen, v);
+        v = 1 / v;
+        sum = sum + v;
+        stepen++;
+    }
+
+    answer = sum;
+}
+
+int main()
+{
+    float x, res;
+
+    cin >> x;
+
+    getSumma(x, res);
+
+    cout << res << "\n";
+
+    return 0;
+}
+
