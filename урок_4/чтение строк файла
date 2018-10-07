@@ -1,0 +1,50 @@
+#include <string.h>
+#include <cstdlib>
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+bool isFileExists(const char * fileName) {
+	ifstream ifile (fileName);
+	return ifile;
+}
+
+void readFromFile(const char * fileName) {
+	FILE * f;
+	f = fopen(fileName, "r");
+	
+	char s[200];
+	int n = 0;
+	while( fgets(s, 200, f) != NULL ) {
+		if(strlen(s) > 0) {
+			if(s[0] != '\n') {
+				n++;
+				cout << n << ") " << (strlen(s) - 1) << "  " << s;
+			}
+		}
+	}
+	
+	fclose(f);
+}
+
+int main() {
+	cout << "Input file name:" << "\n";
+	char fileNameString[200];
+	cin >> fileNameString;
+	
+	bool created = isFileExists(fileNameString);
+	
+	if(created == false) {
+		cout << "\n" << "File not exists !!!" << "\n";
+		return 0;
+	}
+	
+	readFromFile(fileNameString);
+	
+	return 0;
+}
+
+
+
+
+

@@ -1,0 +1,31 @@
+#include <string.h>
+#include <cstdlib>
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+	FILE * f;
+	
+	f = fopen("aaa.txt", "r");
+	
+	int x;
+	char c;
+	
+	while ( (x = getc(f)) != EOF ) {
+		c = char(x);
+		if('0' <= c && c <= '9') {
+			cout << c;
+		}
+	}
+	
+	fclose(f);
+	
+	return 0;
+}
+
+
+
+
+
+

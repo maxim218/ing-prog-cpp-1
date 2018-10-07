@@ -1,0 +1,92 @@
+#include <string.h>
+#include <cstdlib>
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+class Room {
+	private:
+	
+		int a;
+		int b;
+	
+	public:	
+	
+		Room() {
+			a = 0;
+			b = 0;
+		}
+		
+		void initRoom(int aa, int bb) {
+			a = aa;
+			b = bb;
+		}
+		
+		void printFields() {
+			cout << "\n";
+			cout << "A: " << a << "\n";
+			cout << "B: " << b << "\n";
+			cout << "\n";
+		}
+	
+		int getSquare() {
+			return a * b;
+		}
+};
+
+class Hotel {
+	private:
+	
+		Room arr[100];
+		int n;
+		
+	public:
+		Hotel() {
+			n = 0;
+		}
+		
+		void addRoom(int w, int d) {
+			arr[n].initRoom(w, d);
+			n++;
+		}
+		
+		void printAllRooms() {
+			for(int i = 0; i < n; i++) {
+				arr[i].printFields();
+			}
+		}
+		
+		int getHotelSquare() {
+			int summa = 0;
+			for(int i = 0; i < n; i++) {
+				summa += arr[i].getSquare();
+			}
+			return summa;
+		}
+		
+		int getRoomsNumber() {
+			return n;
+		}
+};
+
+int main() {
+	
+	Hotel hotel;
+	
+	hotel.addRoom(2, 3);
+	hotel.addRoom(7, 5);
+	hotel.addRoom(9, 4);
+	
+	hotel.printAllRooms();
+	
+	cout << "Square: " << hotel.getHotelSquare() << "\n\n";
+	
+	cout << "Rooms number: " << hotel.getRoomsNumber() << "\n\n";
+	
+	return 0;
+}
+
+
+
+
+
