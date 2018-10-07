@@ -1,0 +1,44 @@
+#include <string.h>
+#include <cstdlib>
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int getLength(const char * sss) {
+	int n = 0;
+	while(true) {
+		if(sss[n] != '\0')
+			n += 1;
+		else
+			break;
+	}
+	return n;
+}
+
+void concatStrings(char * sss, const char * ttt) {
+	int n1 = getLength(sss);
+	int n2 = getLength(ttt);
+	for(int i = 0; i < n2; i++) sss[n1 + i] = ttt[i];
+	sss[n1 + n2] = '\0';
+}
+
+int main() {
+	cout << "Input string:" << "\n";
+	char s[100];
+	cin >> s;
+	cout << "Your string:" << "\n";
+	cout << s;
+	cout << "\n" << "Length of string: ";
+	int k = getLength(s);
+	cout << k;
+	cout << "\n" << "Input second second string:" << "\n";
+	char t[100];
+	cin >> t;
+	concatStrings(s, t);
+	cout << "Contatted string: " << s;
+	int h = getLength(s);
+	cout << "\n" << "New length: " << h << "\n";
+	
+	return 0;
+}
+
