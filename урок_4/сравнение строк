@@ -1,0 +1,42 @@
+#include <string.h>
+#include <cstdlib>
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+bool equalStrings(const char * s1, const char * s2) {
+	int n1 = strlen(s1);
+	int n2 = strlen(s2);
+	
+	if (n1 != n2) {
+		return false;
+	}
+	
+	for(int i = 0; i < n1; i++) {
+		if(s1[i] != s2[i]) return false;
+	}
+	
+	return true;
+}
+
+int main() {
+	char aaa[100];
+	char bbb[100];
+	
+	cin >> aaa;
+	cin >> bbb;
+	
+	bool b = equalStrings(aaa, bbb);
+	
+	if(b == true)
+		cout << "YES";
+	else
+		cout << "NO";
+	
+	return 0;
+}
+
+
+
+
+
