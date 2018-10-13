@@ -1,0 +1,49 @@
+#include <string.h>
+#include <cstdlib>
+#include <iostream>
+#include <fstream>
+#include <math.h>
+using namespace std;
+
+bool equalStrings(const char * s1, const char * s2) {
+	int n1 = strlen(s1);
+	int n2 = strlen(s2);
+	
+	if(n1 != n2) {
+		return false;
+	}
+	
+	for(int i = 0; i < n1; i++) {
+		char c1 = s1[i];
+		char c2 = s2[i];
+		if(c1 != c2) {
+			return false;
+		}
+	}
+	
+	return true;
+}
+
+int main() {
+    char a[100];
+    char b[100];
+    
+    cin >> a >> b;
+    
+    bool ans = equalStrings(a, b);
+    
+    if(ans == true) {
+		cout << "YES" << "\n";
+	} else {
+		cout << "NO" << "\n";
+	}
+
+    return 0;
+}
+
+
+
+
+
+
+

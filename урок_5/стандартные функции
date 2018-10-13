@@ -1,0 +1,36 @@
+#include <string.h>
+#include <cstdlib>
+#include <iostream>
+#include <fstream>
+#include <math.h>
+using namespace std;
+
+int main() {
+    char s1[100];
+    char s2[100];
+    char s3[100];
+    
+    strcpy(s1, "hello");
+    strcpy(s2, "world");
+    
+    cout << s1 << "\n";
+    cout << s2 << "\n";
+    
+    strcpy(s3, "\0");
+    strcat(s3, s1);
+    strcat(s3, s2);
+    
+	cout << s3 << "\n";
+	
+	int n = strlen(s3);
+	cout << "Third string length: " << n << "\n";
+
+    return 0;
+}
+
+
+
+
+
+
+
