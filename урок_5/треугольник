@@ -1,0 +1,63 @@
+#include <string.h>
+#include <cstdlib>
+#include <iostream>
+#include <fstream>
+#include <math.h>
+using namespace std;
+
+struct tochka {
+	float x;
+	float y;
+};
+
+void readTochka(tochka &t) {
+	cin >> t.x;
+	cin >> t.y;
+}
+
+void writeTochka(tochka t) {
+	cout << "X: " << t.x << "\n";
+	cout << "Y: " << t.y << "\n";
+	cout << "\n";
+}
+
+float otrDlin(tochka t1, tochka t2) {
+	float k1 = t1.x - t2.x;
+	float k2 = t1.y - t2.y;
+	float g = sqrt(k1 * k1 + k2 * k2);
+	return g;
+}
+
+float getPerim(tochka t1, tochka t2, tochka t3) {
+	float d1 = otrDlin(t1, t2);
+	float d2 = otrDlin(t1, t3);
+	float d3 = otrDlin(t2, t3);
+	float p = d1 + d2 + d3;
+	return p;
+}
+
+int main() {
+    tochka a, b, c;
+    
+    readTochka(a);
+    readTochka(b);
+    readTochka(c);
+    
+    cout << "\n";
+
+	writeTochka(a);
+	writeTochka(b);
+	writeTochka(c);
+
+	float answer = getPerim(a, b, c);
+	cout << "Answer: " << answer << "\n";
+
+    return 0;
+}
+
+
+
+
+
+
+
