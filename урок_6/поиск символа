@@ -1,0 +1,31 @@
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+int findChar(const char * sss, char c) {
+	int n = strlen(sss);
+	for(int i = 0; i < n; i++) {
+		if(sss[i] == c) {
+			return i;
+		}
+	}
+	return -1;
+}
+
+int main() {
+	
+	char s[100];
+	cout << "Input string:" << "\n";
+	cin >> s;
+	
+	char x;
+	cout << "Input char:" << "\n";
+	cin >> x;
+	
+	int index = findChar(s, x);
+	cout << "Index: " << index; 
+		
+	return 0;
+}
+
+

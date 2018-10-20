@@ -1,0 +1,75 @@
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+class Room {
+	protected:
+		int a, b;
+	
+	public:
+		void setParams(int aaa, int bbb) {
+			a = aaa;
+			b = bbb;
+		}
+		
+		void writeParams() {
+			cout << "A: " << a << "\n";
+			cout << "B: " << b << "\n";
+			cout << "\n";
+		}
+		
+		int getSquare() {
+			int sss = a * b;
+			return sss;
+		}
+};
+
+class Par : public Room {
+	protected:
+		int h;
+		
+	public:
+		void setHeight(int hhh) {
+			h = hhh;
+		}
+		
+		void writeParamsWithHeight() {
+			cout << "A: " << a << "  B: " << b << "  H: " << h << "\n";
+		}
+		
+		int getVolume() {
+			int kkk = getSquare();
+			int vvv = kkk * h;
+			return vvv;
+		}
+};
+
+int main() {
+	Room x;
+	Room y;
+	Room z;
+	
+	x.setParams(2, 3);
+	y.setParams(4, 5);
+	z.setParams(6, 7);
+	
+	x.writeParams();
+	y.writeParams();
+	z.writeParams();
+	
+	int n1 = x.getSquare();
+	int n2 = y.getSquare();
+	int n3 = z.getSquare();
+	
+	cout << n1 << "   " << n2 << "   " << n3 << "\n\n";
+	
+	Par p;
+	p.setParams(10, 20);
+	p.setHeight(3);
+	p.writeParamsWithHeight();
+	cout << p.getVolume();
+		
+	return 0;
+}
+
+
