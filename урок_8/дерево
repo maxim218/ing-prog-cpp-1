@@ -1,0 +1,98 @@
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+struct node {
+	int x;
+	node * left;
+	node * right;
+};
+
+class MyTree {
+	protected:
+		node *root, *q, *p;
+		
+	public:
+	
+	MyTree() {
+		root = NULL;
+		q = NULL;
+		p = NULL;
+	}
+	
+	bool isElementExists(int k) {
+		q = root;
+		while(q != NULL) {
+			if(q->x == k) return true;
+			if(k >= q->x) {
+				q = q->right;
+			} else {
+				q = q->left;
+			}
+		}
+		return false;
+	}
+	
+	void push(int k) {
+		if(root == NULL) {
+			root = new node;
+			root->x = k;
+			root->left = NULL;
+			root->right = NULL;
+		} else {
+			p = new node;
+			p->x = k;
+			p->left = NULL;
+			p->right = NULL;
+			
+			q = root;
+			
+			while(true) {
+				if(p->x >= q->x) {
+					if(q->right == NULL) {
+						q->right = p;
+						break;
+					} else {
+						q = q->right;
+					}
+				} else {
+					if(q->left == NULL) {
+						q->left = p;
+						break;
+					} else {
+						q = q->left;
+					}
+				}
+			}
+		}
+	}
+	
+};
+
+int main() {
+	MyTree tree;
+	
+	tree.push(10);
+	tree.push(15);
+	tree.push(7);
+	tree.push(24);
+	tree.push(12);
+	
+	int x;
+	cin >> x;
+	
+	bool b = tree.isElementExists(x);
+	if(b == true) {
+		cout << "YES";
+	} else {
+		cout << "NO";
+	}
+	
+	return 0;
+}
+
+
+
+
+
+
