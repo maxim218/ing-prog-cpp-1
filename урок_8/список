@@ -1,0 +1,92 @@
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+struct node {
+	int x;
+	node * next;
+};
+
+class MyList {
+	protected:
+		node *first, *last, *p, *q;
+	
+	public:
+		
+	MyList() {
+		first = NULL;
+		last = NULL;
+		p = NULL;
+		q = NULL;
+	}
+	
+	void printList() {
+		cout << "\n\n";
+		cout << "My list: ";
+		q = first;
+		while (q != NULL) {
+			int x = q->x;
+			cout << x << " ";
+			q = q->next;
+		}
+		cout << "\n\n";
+	}
+	
+	void insert(int n, int pos) {
+		q = first;
+		int current = 0;
+		
+		while(true) {
+			if(current == pos) {
+				break;
+			} else {
+				current++;
+				q = q->next;
+			}
+		}
+		
+		p = new node;
+		p->x = n;
+		p->next = q->next;
+		q->next = p;
+	}
+	
+	void add(int n) {
+		if(first == NULL) {
+			first = new node;
+			first->x = n;
+			first->next = NULL;
+			last = first;
+		} else {
+			q = new node;
+			q->x = n;
+			q->next = NULL;
+			last->next = q;
+			last = q;
+		}
+	}
+};
+
+int main() {
+	MyList list;
+	
+	list.add(10);
+	list.add(20);
+	list.add(30);
+	list.add(40);
+	list.add(50);
+	
+	list.printList();
+	
+	list.insert(123, 2);
+	
+	list.printList();
+	
+	return 0;
+}
+
+
+
+
+
+
