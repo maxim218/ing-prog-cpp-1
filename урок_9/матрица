@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;
+
+int arr[50][50];
+
+int main() {
+	int n;
+	cin >> n;
+	
+	for(int i = 0; i < n; i++)
+		for(int j = 0; j < n; j++) 
+			cin >> arr[i][j];
+		
+	cout << "\n\n";	
+			
+	for(int i = 0; i < n; i++) {
+		for(int j = 0; j < n; j++) 
+			cout << arr[i][j] << "  ";
+		cout << "\n";
+	}
+	
+	cout << "\n\n";	
+	
+	for(int i = 0; i < n; i++) cout << arr[i][i] << "  ";
+	
+	int a[50];
+	int b[50];
+	
+	int k1 = 0;
+	int k2 = 0;
+	
+	for(int i = 0; i < n; i++) {
+		for(int j = 0; j < n; j++) {
+			if(i > j) {
+				// add to "a"
+				a[k1] = arr[i][j];
+				k1++;
+			}
+			
+			if(i < j) {
+				// add to "b"
+				b[k2] = arr[i][j];
+				k2++;
+			}
+		}
+	}
+	
+	cout << "\n\n";
+	for(int i = 0; i < k1; i++) cout << a[i] << "  ";
+	cout << "\n\n";
+	for(int i = 0; i < k2; i++) cout << b[i] << "   ";
+	
+	return 0;
+}
+
+

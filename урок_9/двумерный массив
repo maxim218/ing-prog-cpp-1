@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+int arr[50][50];
+
+void readElements(int n, int m) {
+	for(int i = 0; i < n; i++) {
+		for(int j = 0; j < m; j++) {
+			cin >> arr[i][j];
+		}
+	}
+}
+
+void printElements(int n, int m) {
+	cout << "\n\n";
+	for(int i = 0; i < n; i++) {
+		for(int j = 0; j < m; j++) {
+			cout << arr[i][j] << "  ";
+		}
+		cout << "\n";
+	}
+	cout << "\n\n";
+}
+
+int getSumOfCol(int col, int n) {
+	int s = 0;
+	for(int i = 0; i < n; i++) {
+		s += arr[i][col];
+	}
+	return s;
+}
+
+void printSummaCols(int n, int m) {
+	for(int i = 0; i < m; i++) {
+		int k = getSumOfCol(i, n);
+		cout << k << "  ";
+	}
+}
+
+int main() {
+	int nn, mm;
+	cin >> nn >> mm;
+	
+	readElements(nn, mm);
+	
+	printElements(nn, mm);
+	
+	printSummaCols(nn, mm);
+	
+	return 0;
+}
+
+

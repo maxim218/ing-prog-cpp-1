@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+void printNumbers(int b, int i) {
+	if(i > b) {
+		return;
+	}
+	cout << i << " ";
+	printNumbers(b, i + 1);
+}
+
+int getSum(int b, int i, int s) {
+	if(i > b) {
+		return s;
+	}
+	return getSum(b, i + 1, s + i);
+}
+
+int main() {
+	int x = 10;
+	int y = 20;
+	printNumbers(y, x);
+	
+	int xx = 2;
+	int yy = 5;
+	int summa = getSum(yy, xx, 0);
+	cout << "\n\n" << summa << "\n";
+	
+	
+	return 0;
+}
+
