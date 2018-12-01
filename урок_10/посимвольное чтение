@@ -1,0 +1,43 @@
+#include <string.h>
+#include <cstdlib>
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+bool isFileExists(const char * s) {
+	ifstream ifile(s);
+	return ifile;
+}
+
+int main() {
+	char s[100];
+	cin >> s;
+	
+	bool b = isFileExists(s);
+	
+	if(b == false) {
+		cout << "\n" << "File not found" << "\n";
+		return 0;
+	}
+	
+	int n = 0;
+	
+	FILE * f;
+	f = fopen(s, "r");
+	
+	int x;
+	
+	while ((x = getc(f)) != EOF) {
+		char c = char(x);
+		if('0' <= c && c <= '9') {
+			n++;
+		}
+	}
+	
+	cout << "\n" << "Numbers: " << n << "\n";
+	
+	return 0;
+}
+
+
+

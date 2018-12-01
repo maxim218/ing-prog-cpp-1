@@ -1,0 +1,69 @@
+#include <string.h>
+#include <cstdlib>
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+bool isFileExists(const char * s) {
+	ifstream ifile(s);
+	return ifile;
+}
+
+void killChar(const char * s, char * answer) {
+	strcpy(answer, "\0");
+	int len = strlen(s);
+	for(int i = 0; i < len; i++) {
+		char c = s[i];
+		if(c != '\n') {
+			int n = strlen(answer);
+			answer[n] = c;
+			answer[n + 1] = '\0';
+		}
+	}
+}
+
+int main() {
+	cout << "Input file name:" << "\n";
+	char fileName[50];
+	cin >> fileName;
+	
+	bool b = isFileExists(fileName);
+	
+	if(b == false) {
+		cout << "\n\n" << "File not found" << "\n\n";
+		return 0;
+	}
+	
+	FILE * f;
+	f = fopen(fileName, "r");
+	
+	int n = 0;
+	char s[200];
+	while(fgets(s, 200, f) != NULL) {
+		if(strlen(s) > 0) {
+			if(s[0] != '\n') {
+				char ans[200];
+				killChar(s, ans);
+				cout << ans << "  " << strlen(ans) << "\n";
+				n++;
+			}
+		}
+	}
+	
+	cout << "\n" << n << "\n";
+	
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

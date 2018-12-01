@@ -1,0 +1,44 @@
+#include <string.h>
+#include <cstdlib>
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+void createFile(const char * s) {
+	FILE * f;
+	f = fopen(s, "w+");
+	fclose(f);
+}
+
+void addToFile(const char * s, const char * content) {
+	FILE * f;
+	f = fopen(s, "a+");
+	fputs(content, f);
+	fclose(f);
+}
+
+int main() {
+	cout << "Input file name:" << "\n";
+	char f[50];
+	cin >> f;
+	
+	createFile(f);
+	
+	cout << "Input N:" << "\n";
+	int n;
+	cin >> n;
+	
+	for(int i = 0; i < n; i++) {
+		char s[200];
+		cin >> s;
+		strcat(s, "\n");
+		addToFile(f, s);
+	}
+	
+	return 0;
+}
+
+
+
+
+
