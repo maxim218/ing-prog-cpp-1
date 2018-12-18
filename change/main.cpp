@@ -22,6 +22,24 @@ void addToFile(const char * fileName, user z) {
 	fclose(f);
 }
 
+bool isFileExists(const char * s) {
+	ifstream ifile(s);
+	return ifile;
+}
+
+void readRecordsFromFile(char * fileName) {
+	user z;
+	cout << "\n\n";
+	cout << "Content: " << "\n";
+	FILE * f;
+	f = fopen(fileName, "r");
+	while(fread(&z, sizeof(z), 1, f) > 0) {
+		cout << "ID: " << z.id << "  " << "Login: " << z.login << "\n";
+	}
+	fclose(f);
+	cout << "\n";
+}
+
 int main() {
 	cout << "\n\n";
 	
@@ -52,6 +70,14 @@ int main() {
 		cin >> u.login;
 		cout << "\n";
 		addToFile(finalFileName, u);
+	}
+	
+	bool b = isFileExists(finalFileName);
+	
+	if(b == true) {
+		readRecordsFromFile(finalFileName);
+	} else {
+		cout << "\n\n" << "File not found !!!" << "\n\n";
 	}
     
     return 0;
