@@ -17,12 +17,14 @@ struct user {
 
 void addToFile(const char * fileName, user z) {
 	FILE * f;
-	f = open(fileName, "a+");
+	f = fopen(fileName, "a+");
 	fwrite(&z, sizeof(z), 1, f);
 	fclose(f);
 }
 
 int main() {
+	cout << "\n\n";
+	
     char finalFileName[20];
     strcpy(finalFileName, "users.txt");
     
@@ -34,7 +36,23 @@ int main() {
 		rewriteFile(finalFileName);
 	}
 	
+	cout << "\n\n";
 	
+	cout << "Input N: ";
+	int n;
+	cin >> n;
+	
+	cout << "\n\n";
+	
+	for(int i = 0; i < n; i++) {
+		user u;
+		cout << "Input ID: ";
+		cin >> u.id;
+		cout << "Input Login: ";
+		cin >> u.login;
+		cout << "\n";
+		addToFile(finalFileName, u);
+	}
     
     return 0;
 }
