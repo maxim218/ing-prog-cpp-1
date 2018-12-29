@@ -72,22 +72,42 @@ int main(int argc, char** argv) {
 		addToFile(fileName, s);
 	}
 	
+	s = "<br><br>";
+	addToFile(fileName, s);
+	
+	/* --------------------------------------------- */
+	
+	cout << "\n";
+	cout << "Input people number: ";
+	int k;
+	cin >> k;
+	
+	s = "<table border = '1px'>";
+	addToFile(fileName, s);
+	
+	s = "<tr><td><h4>Man</h4></td><td><h4>Phone</h4></td></tr>";
+	addToFile(fileName, s);
+	
+	for(int i = 0; i < k; i++) {
+		cout << "Input man name: ";
+		string name;
+		cin >> name;
+		cout << "Input man phone: ";
+		string phone;
+		cin >> phone;
+		s = "<tr><td>" + name + "</td><td>" + phone + "</td></tr>";
+		addToFile(fileName, s);
+	}
+	
+	s = "</table><br><br>";
+	addToFile(fileName, s);
+	
+	/* --------------------------------------------- */
+	
 	s = "</body></html>";
 	addToFile(fileName, s);
 	
 	return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
