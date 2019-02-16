@@ -31,6 +31,10 @@ public:
 int heroX;
 int heroY;
 
+bool w, a, s, d;
+
+QTimer * p;
+
 DrawManager drawManager;
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -53,6 +57,40 @@ MainWindow::MainWindow(QWidget *parent) :
     heroY = 80;
 
     drawManager.drawRect(heroX, heroY, 1);
+
+    w = false;
+    a = false;
+    s = false;
+    d = false;
+
+    p = new QTimer(this);
+    connect(p, SIGNAL(timeout()), SLOT(my_slot()));
+    p->start(50);
+}
+
+void MainWindow::my_slot() {
+    int speed = 5;
+    if(w == true) heroY -= speed;
+    if(s == true) heroY += speed;
+    if(a == true) heroX -= speed;
+    if(d == true) heroX += speed;
+
+    drawManager.clearFon();
+    drawManager.drawRect(heroX, heroY, 1);
+}
+
+void MainWindow::keyPressEvent(QKeyEvent *event) {
+    if(event->key() == Qt::Key_A) a = true;
+    if(event->key() == Qt::Key_W) w = true;
+    if(event->key() == Qt::Key_S) s = true;
+    if(event->key() == Qt::Key_D) d = true;
+}
+
+void MainWindow::keyReleaseEvent(QKeyEvent *event) {
+    if(event->key() == Qt::Key_A) a = false;
+    if(event->key() == Qt::Key_W) w = false;
+    if(event->key() == Qt::Key_S) s = false;
+    if(event->key() == Qt::Key_D) d = false;
 }
 
 MainWindow::~MainWindow()
