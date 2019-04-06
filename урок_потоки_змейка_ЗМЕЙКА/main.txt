@@ -79,6 +79,7 @@ void * gameProcess(void *) {
 			printAllElems(' ');
 			moveAllElems();
 			printAllElems('0');
+			draw(arr[0].x, arr[0].y, 'H');
 			controlDead();
 		}
 		::LeaveCriticalSection(&criticalSection);
@@ -100,6 +101,7 @@ int main() {
 	addElem(10, 14);
 	
 	printAllElems('0');
+	draw(arr[0].x, arr[0].y, 'H');
 	
 	Sleep(3000);
 	
