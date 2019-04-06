@@ -1,0 +1,44 @@
+#include <iostream>
+#include <conio.h>
+#include <string.h>
+#include "windows.h"
+#include <pthread.h>
+using namespace std;
+
+HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
+
+CRITICAL_SECTION criticalSection;
+
+void draw(int x, int y, char c) {
+	COORD position;
+	position.X = x;
+	position.Y = y;
+	SetConsoleCursorPosition(console, position);
+	cout << c;
+}
+
+int size = 20;
+
+void printBorders() {
+	for(int i = 0; i < size; i++) {
+		draw(i, 0, 'X');
+		draw(i, size - 1, 'X');
+		draw(0, i, 'X');
+		draw(size - 1, i, 'X');
+	}
+}
+
+int main() {
+	printBorders();
+	
+	return 0;
+}
+
+
+
+
+
+
+
+
+
