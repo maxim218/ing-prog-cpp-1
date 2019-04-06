@@ -28,11 +28,96 @@ void printBorders() {
 	}
 }
 
+struct elem {
+	int x;
+	int y;
+};
+
+char move = 'W';
+elem arr[100];
+int n = 0;
+bool dead = false;
+
+void addElem(int x, int y) {
+	elem e;
+	e.x = x;
+	e.y = y;
+	arr[n] = e;
+	n++;
+}
+
+void printAllElems(char c) {
+	for(int i = 0; i < n; i++) {
+		elem e = arr[i];
+		draw(e.x, e.y, c);
+	}
+}
+
+void moveAllElems() {
+	for(int i = n - 1; i > 0; i--) {
+		arr[i].x = arr[i - 1].x;
+		arr[i].y = arr[i - 1].y;
+	}
+	if(move == 'A') arr[0].x--;
+	if(move == 'D') arr[0].x++;
+	if(move == 'W') arr[0].y--;
+	if(move == 'S') arr[0].y++;
+}
+
+void controlDead() {
+	int xx = arr[0].x;
+	int yy = arr[0].y;
+	
+	if(xx == 0 || xx == size - 1) dead = true;
+	if(yy == 0 || yy == size - 1) dead = true;
+}
+
+void * gameProcess(void *) {
+	while(true) {
+		::EnterCriticalSection(&criticalSection);
+		if(dead == false) {
+			printAllElems(' ');
+			moveAllElems();
+			printAllElems('0');
+			controlDead();
+		}
+		::LeaveCriticalSection(&criticalSection);
+		Sleep(50);
+	}
+}
+
+
+
 int main() {
+	::InitializeCriticalSection(&criticalSection);
+	
 	printBorders();
+	
+	addElem(10, 10);
+	addElem(10, 11);
+	addElem(10, 12);
+	addElem(10, 13);
+	addElem(10, 14);
+	
+	printAllElems('0');
+	
+	Sleep(3000);
+	
+	pthread_t thread;
+	pthread_create(&thread, NULL, gameProcess, NULL);
+	
+	while(true) {
+		char input = getch();
+		if(input == 'w') move = 'W';
+		if(input == 'a') move = 'A';
+		if(input == 's') move = 'S';
+		if(input == 'd') move = 'D';
+	}
 	
 	return 0;
 }
+
+
 
 
 
