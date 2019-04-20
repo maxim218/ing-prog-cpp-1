@@ -1,0 +1,68 @@
+#include <iostream>
+using namespace std;
+
+class Soldier {
+ protected:
+		int live;
+		int hit;
+		int speed;
+	
+ public:	
+	void setLiveHitSpeed(int liveP, int hitP, int speedP) {
+		live = liveP;
+		hit = hitP;
+		speed = speedP;
+	}
+	
+	void hitSmb() {
+		cout << "Hit smb " << hit << "\n";
+	}
+	
+	void run() {
+		cout << "Run " << speed << "\n";
+	}
+	
+	void myHealth() {
+		cout << "My health " << live << "\n";
+	}
+};
+
+
+class Bird : public Soldier {
+	public:
+		int wingSize;
+		
+	void setWing(int wingP) {
+		wingSize = wingP;
+	}
+	
+	void fly() {
+		cout << "Fly " << wingSize << "\n";
+	}
+};
+
+int main() {
+	Soldier sold;
+	sold.setLiveHitSpeed(150, 17, 10);
+	sold.hitSmb();
+	sold.run();
+	sold.myHealth();
+	
+	cout << "\n\n";
+	
+	Bird brd;
+	brd.setLiveHitSpeed(58, 23, 40);
+	brd.hitSmb();
+	brd.run();
+	brd.myHealth();
+	brd.setWing(25);
+	brd.fly();
+	
+	cout << "\n\n";
+	
+	return 0;
+}
+
+
+
+

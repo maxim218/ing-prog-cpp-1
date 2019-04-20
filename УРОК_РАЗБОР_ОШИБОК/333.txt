@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+struct Pos {
+	int xx;
+	int yy;
+};
+
+int main() {
+	Pos p1;
+	p1.xx = 15;
+	p1.yy = 23;
+	cout << "P1: " << p1.xx << " " << p1.yy << "\n\n";
+	
+	Pos * p2;
+	
+	int k = 0;
+	cin >> k;
+	
+	if(k == 1) {
+		p2 = new Pos;
+		p2->xx = 150;
+		p2->yy = 218;
+		cout << "P2: " << p2->xx << " " << p2->yy << "\n\n";
+		delete p2;
+	} else {
+		cout << "Not work" << "\n";
+	}
+	 
+	return 0;
+}
+
+
+
+

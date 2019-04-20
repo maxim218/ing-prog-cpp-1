@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+void makeDouble(int &x) {
+	x = x * 2;
+	cout << "X: " << x << "\n";
+}
+
+int main() {
+	int n = 7;
+	makeDouble(n);
+	cout << "N: " << n << "\n";
+	
+	return 0;
+}
+
